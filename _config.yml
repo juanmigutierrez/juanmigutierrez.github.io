@@ -20,13 +20,13 @@ logo-icon-SEO: "/assets/img/branding/Logo_miguel_gutierrez.png" # must be a non 
 # the browser is closed or not)
 night_mode: "auto"
 
-logo-dark: "/assets/img/branding/MVM-logo-full-dark.svg"
+logo-dark: "/assets/img/branding/Logo_miguel_gutierrez.png"
 highlight_theme: syntax-base16.monokai.dark # select a dark theme for the code highlighter if needed
 
 # Author settings
 author: Miguel Gutierrez # add your name
 author-pic: Foto_perfil.jpg
-about-author:Economist, Applied Mathematician and Computer Science with a minor in Artificial Intelligence from Universidad del Rosario. I have worked as a Tic Tank research assistant at the Universidad del Rosario focusing on differential privacy, I have also belonged to two research hotbeds: Modeling and Simulation of Complex Phenomena in which I developed models and the creation of an experimental game put to the test by the Laboratory of Experimental Economics of Rosario University, and Machine Learning where he developed a cryptocurrency prediction model. Among his interests is Data Science and Artificial Intelligence. I Have worked on different industry projects that had involved Time Series, AI, Data Science and econometrics.
+about-author: Economist, Applied Mathematician and Computer Science with a minor in Artificial Intelligence from Universidad del Rosario. I have worked as a Tic Tank research assistant at the Universidad del Rosario focusing on differential privacy, I have also belonged to two research hotbeds: Modeling and Simulation of Complex Phenomena in which I developed models and the creation of an experimental game put to the test by the Laboratory of Experimental Economics of Rosario University, and Machine Learning where he developed a cryptocurrency prediction model. Among his interests is Data Science and Artificial Intelligence. I Have worked on different industry projects that had involved Time Series, AI, Data Science and econometrics.
 
 
 # Contact links
