@@ -20,13 +20,13 @@ logo-icon-SEO: "/assets/img/branding/Logo_miguel_gutierrez.png" # must be a non 
 # the browser is closed or not)
 night_mode: "auto"
 
-logo-dark: "/assets/img/branding/Logo_miguel_gutierrez.png"
+logo-dark: "/assets/img/branding/Logo_miguel_gutierrez_dark.png"
 highlight_theme: syntax-base16.monokai.dark # select a dark theme for the code highlighter if needed
 
 # Author settings
 author: Miguel Gutierrez # add your name
 author-pic: Foto_perfil.jpg
-about-author: Economist, Applied Mathematician and Computer Science with a minor in Artificial Intelligence from Universidad del Rosario. I have worked as a Tic Tank research assistant at the Universidad del Rosario focusing on differential privacy. I Have worked on different industry projects that had involved Time Series, AI, Data Science and econometrics.
+about-author: Economist, Applied Mathematician and Computer Science with a minor in Artificial Intelligence from Universidad del Rosario. I have worked as a Tic Tank research assistant at the Universidad del Rosario focusing on differential privacy. Now I work on different industry projects at Quantil that involved the use of time Series, AI, Data Science and econometrics models.
 
 
 # Contact links
