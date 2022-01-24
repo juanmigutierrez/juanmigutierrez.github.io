@@ -8,7 +8,7 @@ description: Gradiente Biconjugado.
 img: posts/20220323/gradiente.png
 tags: [gradiente,biconjugado]
 author: Miguel Gutierrez y David Felipe Martinez
-mathjax: yes
+Mathjax: yes
 ---
 
 ::: {#title-block-header}
