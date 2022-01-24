@@ -12,6 +12,8 @@ Mathjax: yes
 ---
 # Gradiente Conjugado
 
+Intento 1
+
 El método del gradiente biconjugado se basa en el método del gradiente conjugado donde se quiere solucionar el sistema <span class="math display">\[Ax = b\]</span>. Este método calcula un pseudo-gradiente <span class="math inline">\(\hat r_k\)</span> y una pseudo-dirección de descenso <span class="math inline">\(\hat p_k\)</span>. Estos pseudo gradientes serán ortogonales a los gradientes <span class="math inline">\(r_k\)</span> y <span class="math inline">\(p_k\)</span>. Este método a diferencia del gradiente conjugado no garantiza convergencia en <span class="math inline">\(m\)</span> pasos.  
 El pre-condicionamiento mejora en general la convergencia de los métodos, esto pues transforma la matriz de coeficientes en una con mejor espectro.
 
