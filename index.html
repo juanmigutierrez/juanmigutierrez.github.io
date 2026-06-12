@@ -8,14 +8,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0d0f14;
-      --surface: #13161e;
-      --border: #1e2330;
-      --accent: #5b8cff;
-      --accent2: #ff6b6b;
-      --text: #c9cdd9;
-      --muted: #5a6177;
-      --heading: #eceef4;
+      --bg: #faf9f6;
+      --surface: #ffffff;
+      --border: #e7e4dc;
+      --accent: #3b6ea5;
+      --accent2: #c0633a;
+      --text: #44413b;
+      --muted: #8a877f;
+      --heading: #1a1a1a;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,7 +25,7 @@
       background: var(--bg);
       color: var(--text);
       font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.7;
       min-height: 100vh;
       overflow-x: hidden;
@@ -36,8 +36,8 @@
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(rgba(91,140,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(91,140,255,0.03) 1px, transparent 1px);
+        linear-gradient(rgba(59,110,165,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,110,165,0.045) 1px, transparent 1px);
       background-size: 60px 60px;
       pointer-events: none;
       z-index: 0;
@@ -118,7 +118,7 @@
     .hero-links a:hover {
       border-color: var(--accent);
       color: var(--accent);
-      background: rgba(91,140,255,0.06);
+      background: rgba(59,110,165,0.07);
     }
 
     .hero-links a.primary {
@@ -126,7 +126,7 @@
       color: #fff;
       border-color: var(--accent);
     }
-    .hero-links a.primary:hover { background: #4070e0; border-color: #4070e0; }
+    .hero-links a.primary:hover { background: #2d5680; border-color: #2d5680; }
 
     /* ── Photo ── */
     .photo-wrap {
@@ -237,7 +237,7 @@
       font-size: 0.65rem;
       color: var(--accent2);
       letter-spacing: 0.08em;
-      border: 1px solid rgba(255,107,107,0.3);
+      border: 1px solid rgba(192,99,58,0.35);
       padding: 0.12rem 0.5rem;
       border-radius: 2px;
     }
@@ -345,10 +345,10 @@
 
   <header>
     <div class="hero-text">
-      <p class="hero-label">// AI & Data Science Engineer</p>
+      <p class="hero-label">// Machine Learning Engineer · Data Scientist</p>
       <h1>Miguel Gutierrez</h1>
       <p class="hero-desc">
-        MSc Statistical Learning at Politecnico di Milano. 4+ years building forecasting models, optimization pipelines, anomaly detection systems, and LLM-powered agents — across industries ranging from e-commerce and healthcare to climate research. Background bridging economics, applied mathematics, and software engineering.
+        Machine Learning Engineer and Data Scientist with 4+ years across industry and research, deploying systems spanning reinforcement learning, time series, computer vision, generative AI, NLP, and LLM-powered applications. Currently completing an MSc in Mathematical Engineering (Statistical Learning) at Politecnico di Milano on a government scholarship (Top 5%). Background bridging economics, applied mathematics, and software engineering.
       </p>
       <div class="hero-links">
         <a class="primary" href="https://juanmigutierrez.com/" target="_blank">Website</a>
@@ -374,11 +374,15 @@
         </div>
         <div class="about-fact">
           <span class="fact-key">Focus Area</span>
-          <span class="fact-val">Statistical Learning · Agentic AI · Computer Vision</span>
+          <span class="fact-val">Statistical Learning · Agentic AI · Computer Vision · Sequential Decision-Making</span>
+        </div>
+        <div class="about-fact">
+          <span class="fact-key">Languages</span>
+          <span class="fact-val">Spanish (Native) · English (C1, IELTS 7) · Italian (Working) · French (Basic)</span>
         </div>
         <div class="about-fact">
           <span class="fact-key">Beyond the code</span>
-          <span class="fact-val">Anime & cartoons · Teaching & mentoring</span>
+          <span class="fact-val">Anime &amp; cartoons · Teaching &amp; mentoring</span>
         </div>
       </div>
       <div>
@@ -405,8 +409,8 @@
       <div class="edu-item">
         <span class="edu-year">2025–now</span>
         <div>
-          <div class="edu-title">IMHTP — Data Science & AI Engineer</div>
-          <div class="edu-sub">Built an agentic AI workflow for a European healthcare company that validates reports using pattern recognition, reaching near-zero defect rate after iterative refinement. Previously developed and benchmarked survival analysis models (Cox PH, XGBoost Survival, DeepSurv), achieving 70% C-concordance on clinical data.</div>
+          <div class="edu-title">IMHTP — AI Engineer / Data Scientist</div>
+          <div class="edu-sub">Design multi-agent LLM pipelines (SOTA foundation models + NLP pattern-matching) for automated healthcare data processing, reaching error-free extraction across all manually validated cases. Prototyped STT/TTS models and a real-time computer-vision anomaly-detection pipeline (DRAEM + temporal deep learning, 91% accuracy) for industrial process evaluation. Earlier, benchmarked survival-analysis models (Cox PH, Kaplan–Meier, XGBoost Survival, DeepSurv), reaching a 0.70 concordance index on clinical data.</div>
         </div>
       </div>
       <div class="edu-item">
@@ -417,10 +421,10 @@
         </div>
       </div>
       <div class="edu-item">
-        <span class="edu-year">2023–2024</span>
+        <span class="edu-year">2022–2024</span>
         <div>
           <div class="edu-title">TripleTen LatAm — Data Science Code Reviewer</div>
-          <div class="edu-sub">Reviewed student work across Python, SQL, statistics, supervised/unsupervised ML, time series, NLP, and computer vision. Focused on code quality and best practices.</div>
+          <div class="edu-sub">Reviewed and validated 200+ student projects across Python, SQL, statistics, supervised/unsupervised ML, time series, NLP, and computer vision — mentoring learners on accuracy and best practices.</div>
         </div>
       </div>
       <div class="edu-item">
@@ -445,24 +449,24 @@
     <p class="section-label">03 — Education</p>
     <div class="edu-list">
       <div class="edu-item">
-        <span class="edu-year">MSc</span>
+        <span class="edu-year">2024–27</span>
         <div>
-          <div class="edu-title">Politecnico di Milano</div>
-          <div class="edu-sub">Statistical Learning Track</div>
+          <div class="edu-title">Politecnico di Milano — MSc Mathematical Engineering</div>
+          <div class="edu-sub">Statistical Learning Track. Invest Your Talent in Italy Scholarship (Top 5%) &amp; Colfuturo Scholarship Loan. Coursework: AI &amp; Computer Vision, High-Performance (CUDA) Computing, Graph ML, Streaming Data Engineering, Online Machine Learning.</div>
         </div>
       </div>
       <div class="edu-item">
-        <span class="edu-year">BSc</span>
+        <span class="edu-year">2019–21</span>
         <div>
-          <div class="edu-title">Universidad del Rosario</div>
-          <div class="edu-sub">Applied Maths & Computer Science — Minor: Artificial Intelligence</div>
+          <div class="edu-title">Universidad del Rosario — BSc Applied Maths &amp; Computer Science</div>
+          <div class="edu-sub">Minor: Artificial Intelligence. Coursework: NLP, Machine Learning, Computer Vision, Optimization, Data Structures &amp; Algorithms.</div>
         </div>
       </div>
       <div class="edu-item">
-        <span class="edu-year">BA</span>
+        <span class="edu-year">2016–20</span>
         <div>
-          <div class="edu-title">Universidad del Rosario</div>
-          <div class="edu-sub">Economics</div>
+          <div class="edu-title">Universidad del Rosario — BA Economics</div>
+          <div class="edu-sub">Coursework: Econometrics, Time Series, Statistics. School Alliance Scholarship (top 3 of applicant pool).</div>
         </div>
       </div>
     </div>
@@ -472,6 +476,20 @@
   <section>
     <p class="section-label">04 — Selected Projects</p>
     <div class="project-list">
+      <a class="project-card" href="https://github.com/juanmigutierrez" target="_blank">
+        <div class="project-header">
+          <span class="project-name">HeritEdge — Multimodal AR Heritage Web App</span>
+          <span class="project-lang">TypeScript</span>
+        </div>
+        <p class="project-desc">Full-stack RAG + WebXR app for Milan's Piazza del Duomo: LLM assistant grounded in a Chroma vector database, AR treasure hunt, and vision-model photo verification. Containerized with Docker and deployed to AWS (EC2, ECR, S3, CloudFront).</p>
+      </a>
+      <a class="project-card" href="blog/superquadric-fitting.html">
+        <div class="project-header">
+          <span class="project-name">3D Geometric Primitive Fitting</span>
+          <span class="project-lang">Python</span>
+        </div>
+        <p class="project-desc">Extended GAIR-RANSAC to decompose noisy point clouds into superquadric primitives, cutting average Chamfer distance by 40% (4.1→2.5×10⁻³) across synthetic scenes and 10 real Thingi10K meshes.</p>
+      </a>
       <a class="project-card" href="https://github.com/Palpal16/DataAgent" target="_blank">
         <div class="project-header">
           <span class="project-name">LLM-Powered Data Analysis System</span>
@@ -508,7 +526,7 @@
     <p class="section-label">05 — Writing</p>
     <div class="blog-list">
       <a class="blog-card" href="blog/superquadric-fitting.html">
-        <p class="blog-pub">Interactive Write-up · STAG 2025</p>
+        <p class="blog-pub"><span style="background:var(--accent);color:#fff;padding:0.14rem 0.55rem;border-radius:3px;letter-spacing:0.07em;">Interactive Blog</span> <span style="color:var(--accent2);margin-left:0.4rem;">STAG 2025</span></p>
         <p class="blog-title">Fitting Geometry to Messy Point Clouds: Robust 3D Primitive Decomposition with Superquadrics</p>
         <p class="blog-date">Drag the 3D figures to explore</p>
       </a>
@@ -546,21 +564,35 @@
     <div class="stack-grid">
       <span class="stack-item">Python</span>
       <span class="stack-item">R</span>
-      <span class="stack-item">C++</span>
-      <span class="stack-item">CUDA</span>
-      <span class="stack-item">Matlab</span>
-      <span class="stack-item">SQL / MySQL</span>
+      <span class="stack-item">C++ / CUDA</span>
+      <span class="stack-item">SQL · BigQuery</span>
       <span class="stack-item">PyTorch</span>
-      <span class="stack-item">Scikit-learn</span>
-      <span class="stack-item">HuggingFace</span>
+      <span class="stack-item">JAX</span>
+      <span class="stack-item">TensorFlow</span>
+      <span class="stack-item">Scikit-learn · XGBoost</span>
+      <span class="stack-item">Stable Baselines3</span>
       <span class="stack-item">LangChain</span>
-      <span class="stack-item">HTML / CSS</span>
-      <span class="stack-item">STATA</span>
+      <span class="stack-item">HuggingFace</span>
+      <span class="stack-item">Docker</span>
+      <span class="stack-item">AWS · GCP</span>
+      <span class="stack-item">Spark</span>
+      <span class="stack-item">React / TypeScript</span>
+      <span class="stack-item">Tableau</span>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section>
+    <p class="section-label">08 — Certifications</p>
+    <div class="stack-grid">
+      <span class="stack-item">Deep RL (Stable Baselines3, Gymnasium) — Hugging Face, 2023</span>
+      <span class="stack-item">Unsupervised Learning, Recommenders, RL — DeepLearning.AI, 2022</span>
+      <span class="stack-item">Accelerated Computing in CUDA C/C++ — NVIDIA, 2025</span>
     </div>
   </section>
 
   <footer>
-    <span class="footer-copy">© 2025 Miguel Gutierrez · juanmigutierrez.github.io</span>
+    <span class="footer-copy">© 2026 Miguel Gutierrez · juanmigutierrez.github.io</span>
     <a class="footer-email" href="https://www.linkedin.com/in/juanmigut/" target="_blank">linkedin.com/in/juanmigut</a>
   </footer>
 

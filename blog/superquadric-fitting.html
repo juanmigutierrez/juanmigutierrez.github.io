@@ -9,14 +9,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --bg:#0d0f14; --surface:#13161e; --surface2:#171b25; --border:#1e2330;
-      --accent:#5b8cff; --accent2:#ff6b6b; --green:#37d39b; --amber:#f6c177;
-      --text:#c9cdd9; --muted:#5a6177; --heading:#eceef4;
+      --bg:#faf9f6; --surface:#ffffff; --surface2:#f1efe9; --border:#e7e4dc;
+      --accent:#3b6ea5; --accent2:#c0633a; --green:#128a5e; --amber:#9a6a14;
+      --text:#44413b; --muted:#8a877f; --heading:#1a1a1a;
+    }
+    /* keep the interactive 3D viewer as a self-contained dark panel */
+    .viewer-shell{
+      --surface:#13161e; --border:#1e2330; --accent2:#ff6b6b; --green:#37d39b;
+      --text:#c9cdd9; --muted:#8a90a3; --heading:#eceef4;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;}
-    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.75;min-height:100vh;overflow-x:hidden;}
-    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(91,140,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(91,140,255,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
+    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:400;line-height:1.75;min-height:100vh;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(59,110,165,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(59,110,165,0.045) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
     .container{max-width:920px;margin:0 auto;padding:0 2rem;position:relative;z-index:1;}
     a{color:var(--accent);text-decoration:none;}
     a:hover{text-decoration:underline;}
@@ -33,9 +38,9 @@
     .hero-meta b{color:var(--text);font-weight:500;}
     .hero-links{display:flex;flex-wrap:wrap;gap:0.65rem;}
     .btn{font-family:'DM Mono',monospace;font-size:0.76rem;letter-spacing:0.04em;padding:0.5rem 1.05rem;border:1px solid var(--border);color:var(--text);border-radius:2px;transition:border-color .2s,color .2s,background .2s;}
-    .btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(91,140,255,0.06);text-decoration:none;}
+    .btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(59,110,165,0.07);text-decoration:none;}
     .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent);}
-    .btn.primary:hover{background:#4070e0;border-color:#4070e0;color:#fff;}
+    .btn.primary:hover{background:#2d5680;border-color:#2d5680;color:#fff;}
 
     section{padding:3.2rem 0;border-bottom:1px solid var(--border);}
     .section-label{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.2em;color:var(--muted);text-transform:uppercase;margin-bottom:1.6rem;}
@@ -55,7 +60,7 @@
     .tab.active{color:#fff;background:var(--accent);border-color:var(--accent);}
     .toggles{display:flex;flex-wrap:wrap;gap:0.4rem;}
     .toggle{font-family:'DM Mono',monospace;font-size:0.68rem;padding:0.38rem 0.7rem;border:1px solid var(--border);border-radius:3px;color:var(--muted);cursor:pointer;user-select:none;transition:all .15s;background:transparent;}
-    .toggle.on{color:var(--heading);border-color:var(--accent);background:rgba(91,140,255,0.08);}
+    .toggle.on{color:var(--heading);border-color:var(--accent);background:rgba(59,110,165,0.12);}
     #canvas-wrap{position:relative;width:100%;height:480px;background:radial-gradient(circle at 50% 38%,#11151d 0%,#0a0c11 78%);}
     #canvas-wrap canvas{display:block;width:100%;height:100%;outline:none;}
     .viewer-hint{position:absolute;left:0.9rem;bottom:0.8rem;font-family:'DM Mono',monospace;font-size:0.66rem;color:var(--muted);background:rgba(10,12,17,0.6);padding:0.3rem 0.6rem;border-radius:3px;pointer-events:none;}
@@ -142,7 +147,7 @@
   </nav>
 
   <header>
-    <p class="hero-label">// Image Analysis &amp; Computer Vision · 2026</p>
+    <p class="hero-label">// <span style="background:var(--accent);color:#fff;padding:0.14rem 0.55rem;border-radius:3px;">Interactive Blog</span> &nbsp; Image Analysis &amp; Computer Vision · 2026</p>
     <h1>Fitting Geometry to Messy Point Clouds</h1>
     <p class="hero-desc">
       Real depth sensors return noisy, cluttered clouds of 3D points. This project turns those clouds into a handful of clean geometric solids — <b>superquadrics</b> — even when the data is sharp-edged, overlapping, or 30% outliers. We extend the <b>GAIR-RANSAC</b> framework (STAG 2025) with six targeted changes that make it robust enough for real meshes and sensor data.
