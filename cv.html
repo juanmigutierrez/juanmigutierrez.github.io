@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — Miguel Gutierrez</title>
+  <meta name="description" content="Curriculum vitae of Juan Miguel Gutierrez — Machine Learning Engineer & Data Scientist. Experience, education, technical skills, and certifications." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#faf9f6; --surface:#ffffff; --surface2:#f1efe9; --border:#e7e4dc;
+      --accent:#3b6ea5; --accent2:#c0633a; --text:#44413b; --muted:#8a877f; --heading:#1a1a1a;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:400;line-height:1.7;min-height:100vh;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(59,110,165,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(59,110,165,0.045) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
+    .container{max-width:880px;margin:0 auto;padding:0 2rem;position:relative;z-index:1;}
+    a{color:var(--accent);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+
+    .topnav{display:flex;justify-content:space-between;align-items:center;padding:1.6rem 0 0;font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.08em;}
+    .topnav a{color:var(--muted);}
+    .topnav a:hover{color:var(--accent);text-decoration:none;}
+
+    header{padding:3rem 0 2.4rem;border-bottom:1px solid var(--border);}
+    .hero-label{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.18em;color:var(--accent);text-transform:uppercase;margin-bottom:1.1rem;}
+    h1{font-family:'Syne',sans-serif;font-size:clamp(2.4rem,5.4vw,3.6rem);font-weight:800;color:var(--heading);line-height:1.05;letter-spacing:-0.02em;margin-bottom:1rem;}
+    .hero-desc{font-size:1rem;color:var(--text);line-height:1.8;margin-bottom:1.5rem;max-width:680px;}
+    .hero-links{display:flex;flex-wrap:wrap;gap:0.65rem;}
+    .btn{font-family:'DM Mono',monospace;font-size:0.76rem;letter-spacing:0.04em;padding:0.5rem 1.05rem;border:1px solid var(--border);color:var(--text);border-radius:2px;cursor:pointer;background:transparent;transition:border-color .2s,color .2s,background .2s;}
+    .btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(59,110,165,0.07);text-decoration:none;}
+    .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent);}
+    .btn.primary:hover{background:#2d5680;border-color:#2d5680;color:#fff;}
+
+    section{padding:3rem 0;border-bottom:1px solid var(--border);}
+    .section-label{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.2em;color:var(--muted);text-transform:uppercase;margin-bottom:2rem;}
+
+    .item-list{display:flex;flex-direction:column;gap:1.8rem;}
+    .item{display:grid;grid-template-columns:92px 1fr;gap:1.2rem;align-items:start;}
+    @media(max-width:600px){.item{grid-template-columns:1fr;gap:0.3rem;}}
+    .item-year{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--accent);padding-top:0.25rem;}
+    .item-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:600;color:var(--heading);margin-bottom:0.3rem;}
+    .item-sub{font-size:0.9rem;color:var(--muted);line-height:1.65;}
+
+    .grid{display:flex;flex-wrap:wrap;gap:0.65rem;}
+    .chip{font-family:'DM Mono',monospace;font-size:0.75rem;padding:0.42rem 0.95rem;border:1px solid var(--border);border-radius:2px;color:var(--text);background:var(--surface);}
+    .chip.wide{font-size:0.72rem;}
+
+    .fact{display:flex;flex-direction:column;gap:0.3rem;margin-bottom:1.3rem;}
+    .fact-key{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase;}
+    .fact-val{font-size:0.95rem;color:var(--text);}
+
+    .pub-card{border-left:2px solid var(--accent);padding:1.1rem 1.4rem;background:var(--surface);border-radius:0 4px 4px 0;}
+    .pub-title{font-family:'Syne',sans-serif;font-size:0.97rem;font-weight:600;color:var(--heading);margin-bottom:0.4rem;}
+    .pub-meta{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--muted);letter-spacing:0.04em;}
+    .pub-link{display:inline-block;margin-top:0.7rem;font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--accent);}
+
+    footer{padding:2.5rem 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .footer-copy{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--muted);}
+    .footer-email{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--accent);}
+
+    @media print{
+      body::before{display:none;} .topnav,.hero-links,footer{display:none;}
+      section{border-color:#ddd;} body{font-size:12px;}
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <nav class="topnav">
+    <a href="index.html">← Home</a>
+    <span><a href="blog/index.html">Blog</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/juanmigut/" target="_blank">LinkedIn</a></span>
+  </nav>
+
+  <header>
+    <p class="hero-label">// Curriculum Vitae</p>
+    <h1>Juan Miguel Gutierrez</h1>
+    <p class="hero-desc">
+      Machine Learning Engineer and Data Scientist with 4+ years across industry and research, deploying systems spanning reinforcement learning, time series, computer vision, generative AI, NLP, and LLM-powered applications. Completing an MSc in Mathematical Engineering (Statistical Learning) at Politecnico di Milano on a government scholarship (Top 5%).
+    </p>
+    <div class="hero-links">
+      <button class="btn primary" onclick="window.print()">⤓ Save as PDF</button>
+      <a class="btn" href="https://github.com/juanmigutierrez" target="_blank">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/juanmigut/" target="_blank">LinkedIn</a>
+      <a class="btn" href="mailto:juanmi.gutierrez1234@gmail.com">Email</a>
+    </div>
+  </header>
+
+  <!-- EXPERIENCE -->
+  <section>
+    <p class="section-label">01 — Experience</p>
+    <div class="item-list">
+      <div class="item">
+        <span class="item-year">2025–now</span>
+        <div>
+          <div class="item-title">IMHTP — AI Engineer / Data Scientist · Milan, Italy</div>
+          <div class="item-sub">Design multi-agent LLM pipelines (SOTA foundation models + NLP pattern-matching) for automated healthcare data processing, reaching error-free extraction across all manually validated cases. Prototyped STT/TTS models and a real-time computer-vision anomaly-detection pipeline (DRAEM + temporal deep learning, 91% accuracy) for industrial process evaluation. Earlier, benchmarked survival-analysis models (Cox PH, Kaplan–Meier, XGBoost Survival, DeepSurv), reaching a 0.70 concordance index on clinical data.</div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="item-year">2022–2024</span>
+        <div>
+          <div class="item-title">Mercado Libre — Semi-Senior AI / Data Science Engineer · Bogotá, Colombia</div>
+          <div class="item-sub">Improved median stock health by ~15% and reduced overstock by 10% via probabilistic forecasting integrated into inventory optimization. Pioneered Reinforcement Learning and Contextual Bandits for dynamic pricing and order-quantity models. Built LLM agents with multi-agentic workflows and advanced prompting (Tree-of-Thought) for executive decision support. Contributed to a Stable Diffusion image-generation initiative and a Tableau seller-funnel dashboard.</div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="item-year">2022–2024</span>
+        <div>
+          <div class="item-title">TripleTen LatAm — Data Science Code Reviewer · Remote</div>
+          <div class="item-sub">Reviewed and validated 200+ student projects across Python, SQL, statistics, supervised/unsupervised ML, time series, NLP, and computer vision — mentoring learners on accuracy and best practices.</div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="item-year">2021–2022</span>
+        <div>
+          <div class="item-title">Quantil — Data Scientist (Researcher) · Bogotá, Colombia</div>
+          <div class="item-sub">Built a record-matching algorithm achieving 80% match rate on partial data. Implemented gas-shortage estimation methods that reduced client costs by 25%. Worked across time series, supervised learning, and dynamic panel-data models using Python, R, and STATA.</div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="item-year">2020–2021</span>
+        <div>
+          <div class="item-title">Universidad del Rosario — Research Assistant · Bogotá, Colombia</div>
+          <div class="item-sub">Researched differential-privacy algorithms at the Tic Tank research group, contributing to a published workshop paper at ICML LatinX in AI (LXAI) 2022.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <p class="section-label">02 — Education</p>
+    <div class="item-list">
+      <div class="item">
+        <span class="item-year">2024–27</span>
+        <div>
+          <div class="item-title">Politecnico di Milano — MSc Mathematical Engineering</div>
+          <div class="item-sub">Statistical Learning Track. Invest Your Talent in Italy Scholarship (Top 5%) &amp; Colfuturo Scholarship Loan. Coursework: AI &amp; Computer Vision, High-Performance (CUDA) Computing, Graph ML, Streaming Data Engineering, Statistical Signal Processing, Online Machine Learning.</div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="item-year">2019–21</span>
+        <div>
+          <div class="item-title">Universidad del Rosario — BSc Applied Maths &amp; Computer Science</div>
+          <div class="item-sub">Minor: Artificial Intelligence. Coursework: NLP, Machine Learning, Computer Vision, Optimization, Data Structures &amp; Algorithms.</div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="item-year">2016–20</span>
+        <div>
+          <div class="item-title">Universidad del Rosario — BA Economics</div>
+          <div class="item-sub">Coursework: Econometrics, Time Series, Statistics. School Alliance Scholarship (top 3 of applicant pool).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section>
+    <p class="section-label">03 — Tech Stack</p>
+    <div class="grid">
+      <span class="chip">Python</span>
+      <span class="chip">R</span>
+      <span class="chip">C++ / CUDA</span>
+      <span class="chip">SQL · BigQuery</span>
+      <span class="chip">PyTorch</span>
+      <span class="chip">JAX</span>
+      <span class="chip">TensorFlow</span>
+      <span class="chip">Scikit-learn · XGBoost</span>
+      <span class="chip">Stable Baselines3</span>
+      <span class="chip">LangChain</span>
+      <span class="chip">HuggingFace</span>
+      <span class="chip">Docker</span>
+      <span class="chip">AWS · GCP</span>
+      <span class="chip">Spark</span>
+      <span class="chip">React / TypeScript</span>
+      <span class="chip">Tableau</span>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section>
+    <p class="section-label">04 — Certifications</p>
+    <div class="grid">
+      <span class="chip wide">Deep RL (Stable Baselines3, Gymnasium) — Hugging Face, 2023</span>
+      <span class="chip wide">Unsupervised Learning, Recommenders, RL — DeepLearning.AI, 2022</span>
+      <span class="chip wide">Accelerated Computing in CUDA C/C++ — NVIDIA, 2025</span>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section>
+    <p class="section-label">05 — Research</p>
+    <div class="pub-card">
+      <p class="pub-title">A Model-Based Filter to Improve Local Differential Privacy</p>
+      <p class="pub-meta">Gutierrez, J. M. et al. · ICML 2022 · LatinX in AI Research Workshop · Baltimore, MD</p>
+      <a class="pub-link" href="https://doi.org/10.52591/lxai202207171" target="_blank">→ doi.org/10.52591/lxai202207171</a>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section>
+    <p class="section-label">06 — Languages</p>
+    <div class="fact">
+      <span class="fact-val">Spanish (Native) · English (C1, IELTS 7) · Italian (Limited Working) · French (Elementary)</span>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-copy">© 2026 Miguel Gutierrez · juanmigutierrez.github.io</span>
+    <a class="footer-email" href="https://www.linkedin.com/in/juanmigut/" target="_blank">linkedin.com/in/juanmigut</a>
+  </footer>
+
+</div>
+</body>
+</html>

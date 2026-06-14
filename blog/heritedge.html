@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HeritEdge — Multimodal AR Heritage App — Miguel Gutierrez</title>
+  <meta name="description" content="HeritEdge: a full-stack multimodal AR web app for Milan's heritage sites — RAG-grounded LLM assistant, WebXR treasure hunt, and vision-model photo verification, deployed on AWS." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#faf9f6; --surface:#ffffff; --surface2:#f1efe9; --border:#e7e4dc;
+      --accent:#3b6ea5; --accent2:#c0633a; --green:#128a5e; --text:#44413b; --muted:#8a877f; --heading:#1a1a1a;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:400;line-height:1.75;min-height:100vh;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(59,110,165,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(59,110,165,0.045) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
+    .container{max-width:820px;margin:0 auto;padding:0 2rem;position:relative;z-index:1;}
+    a{color:var(--accent);text-decoration:none;} a:hover{text-decoration:underline;}
+    .topnav{display:flex;justify-content:space-between;align-items:center;padding:1.6rem 0 0;font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.08em;}
+    .topnav a{color:var(--muted);} .topnav a:hover{color:var(--accent);text-decoration:none;}
+    header{padding:3rem 0 2.4rem;border-bottom:1px solid var(--border);}
+    .hero-label{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.18em;color:var(--accent);text-transform:uppercase;margin-bottom:1.1rem;}
+    h1{font-family:'Syne',sans-serif;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;color:var(--heading);line-height:1.07;letter-spacing:-0.02em;margin-bottom:1.1rem;}
+    .hero-desc{font-size:1.05rem;color:var(--text);line-height:1.8;margin-bottom:1.5rem;max-width:680px;}
+    .hero-meta{font-family:'DM Mono',monospace;font-size:0.74rem;color:var(--muted);line-height:1.9;margin-bottom:1.5rem;}
+    .hero-meta b{color:var(--text);font-weight:500;}
+    .hero-links{display:flex;flex-wrap:wrap;gap:0.65rem;}
+    .btn{font-family:'DM Mono',monospace;font-size:0.76rem;letter-spacing:0.04em;padding:0.5rem 1.05rem;border:1px solid var(--border);color:var(--text);border-radius:2px;transition:all .2s;}
+    .btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(59,110,165,0.07);text-decoration:none;}
+    .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent);}
+    .btn.primary:hover{background:#2d5680;border-color:#2d5680;color:#fff;}
+    section{padding:2.8rem 0;border-bottom:1px solid var(--border);}
+    .section-label{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.2em;color:var(--muted);text-transform:uppercase;margin-bottom:1.4rem;}
+    h2{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:700;color:var(--heading);letter-spacing:-0.01em;margin-bottom:1rem;}
+    h3{font-family:'Syne',sans-serif;font-size:1.02rem;font-weight:600;color:var(--heading);margin:1.5rem 0 0.5rem;}
+    p{margin-bottom:1rem;} .lead{font-size:1.05rem;} .muted{color:var(--muted);}
+    code{font-family:'DM Mono',monospace;font-size:0.85em;background:var(--surface2);padding:0.1rem 0.4rem;border-radius:3px;color:var(--accent2);}
+    .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:0.5rem;}
+    @media(max-width:680px){.card-grid{grid-template-columns:1fr;}}
+    .card{border:1px solid var(--border);border-left:2px solid var(--accent);border-radius:0 5px 5px 0;background:var(--surface);padding:1.1rem 1.3rem;}
+    .card h4{font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:600;color:var(--heading);margin-bottom:0.35rem;}
+    .card p{font-size:0.88rem;color:var(--muted);margin:0;line-height:1.6;}
+    .arch{border:1px solid var(--border);border-radius:5px;background:var(--surface);padding:1.2rem 1.3rem;font-family:'DM Mono',monospace;font-size:0.78rem;line-height:1.9;color:var(--text);overflow-x:auto;}
+    .arch .mut{color:var(--muted);}
+    .chips{display:flex;flex-wrap:wrap;gap:0.6rem;}
+    .chip{font-family:'DM Mono',monospace;font-size:0.74rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:2px;color:var(--text);background:var(--surface);}
+    footer{padding:2.5rem 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .footer-copy{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--muted);}
+    .footer-email{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--accent);}
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <nav class="topnav">
+    <a href="../index.html">← Home</a>
+    <span><a href="index.html">Blog</a> &nbsp;·&nbsp; <a href="../cv.html">CV</a></span>
+  </nav>
+
+  <header>
+    <p class="hero-label">// Full-Stack · Multimodal AI · AR · 2025</p>
+    <h1>HeritEdge — Bringing Milan's Heritage to Life</h1>
+    <p class="hero-desc">
+      A full-stack, multimodal augmented-reality web app that turns a walk through Milan's <b>Piazza del Duomo, Palazzo Reale and Galleria Vittorio Emanuele</b> into an interactive experience — a grounded LLM guide, a WebXR treasure hunt, and a vision model that checks whether you really found the landmark.
+    </p>
+    <p class="hero-meta">
+      <b>Team</b> &nbsp;5 people · full-stack &amp; cloud lead<br>
+      <b>Stack</b> &nbsp;React · TypeScript · Node.js · Express · Chroma · Docker · AWS<br>
+      <b>Sites</b> &nbsp;Piazza del Duomo · Palazzo Reale · Galleria Vittorio Emanuele
+    </p>
+    <div class="hero-links">
+      <a class="btn primary" href="https://github.com/juanmigutierrez" target="_blank">GitHub ↗</a>
+    </div>
+  </header>
+
+  <section>
+    <p class="section-label">01 — The idea</p>
+    <h2>A guide that knows the building you're standing in front of</h2>
+    <p class="lead">
+      Heritage sites are surrounded by information that tourists rarely reach — it lives in plaques, archives and guidebooks, not in the moment you're looking at the façade. HeritEdge puts that knowledge in your hand: point your phone at a monument and get an accurate, grounded answer, then turn the visit into a game.
+    </p>
+    <p>
+      The brief was deliberately multimodal: combine <b>text</b> (an LLM assistant), <b>vision</b> (recognizing what the camera sees), and <b>spatial interaction</b> (AR in the browser) into one coherent web app that runs on an ordinary phone with no install.
+    </p>
+  </section>
+
+  <section>
+    <p class="section-label">02 — What it does</p>
+    <h2>Three experiences, one app</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h4>RAG heritage assistant</h4>
+        <p>An LLM chat grounded in a Chroma vector database of curated heritage facts, so answers stay tied to real sources instead of the model's imagination.</p>
+      </div>
+      <div class="card">
+        <h4>WebXR treasure hunt</h4>
+        <p>An augmented-reality hunt driven by camera and device-orientation input — players follow clues and find AR markers placed around each site.</p>
+      </div>
+      <div class="card">
+        <h4>Vision photo verification</h4>
+        <p>A vision model checks a player's photo against the target landmark to confirm they actually reached it before unlocking the next step.</p>
+      </div>
+      <div class="card">
+        <h4>Browser-native, install-free</h4>
+        <p>Everything runs in a mobile browser via WebXR, so visitors join instantly by opening a link — no app store, no download.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">03 — Under the hood</p>
+    <h2>Architecture &amp; deployment</h2>
+    <p>
+      The frontend is a React/TypeScript single-page app; a Node.js/Express backend serves the RAG endpoint and verification calls. Retrieval runs against a Chroma vector store of heritage facts, and the whole stack is containerized and shipped to AWS.
+    </p>
+    <div class="arch">
+      <span class="mut">client</span> &nbsp;React + TypeScript (WebXR, camera, orientation)<br>
+      &nbsp;&nbsp;&nbsp;↓ REST<br>
+      <span class="mut">api</span> &nbsp;&nbsp;&nbsp;&nbsp;Node.js + Express &nbsp;→ &nbsp;LLM + vision model<br>
+      &nbsp;&nbsp;&nbsp;↓ retrieval<br>
+      <span class="mut">data</span> &nbsp;&nbsp;Chroma vector DB (curated heritage facts)<br>
+      &nbsp;&nbsp;&nbsp;↓ deploy<br>
+      <span class="mut">cloud</span> &nbsp;Docker (multi-stage) → AWS EC2 · ECR · S3 · CloudFront
+    </div>
+    <p style="margin-top:1rem;">
+      I owned the cloud path end to end: multi-stage Docker builds to keep images lean, then deployment to <b>AWS</b> across EC2, ECR, S3 and CloudFront — configuring IAM roles, security groups, and CDN-to-origin routing so the static frontend and the API served cleanly behind one domain.
+    </p>
+  </section>
+
+  <section>
+    <p class="section-label">04 — Stack</p>
+    <div class="chips">
+      <span class="chip">React</span>
+      <span class="chip">TypeScript</span>
+      <span class="chip">Node.js · Express</span>
+      <span class="chip">WebXR</span>
+      <span class="chip">RAG</span>
+      <span class="chip">Chroma</span>
+      <span class="chip">Vision models</span>
+      <span class="chip">Docker</span>
+      <span class="chip">AWS (EC2 · ECR · S3 · CloudFront)</span>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-copy">© 2026 Miguel Gutierrez · juanmigutierrez.github.io</span>
+    <a class="footer-email" href="https://www.linkedin.com/in/juanmigut/" target="_blank">linkedin.com/in/juanmigut</a>
+  </footer>
+
+</div>
+</body>
+</html>
